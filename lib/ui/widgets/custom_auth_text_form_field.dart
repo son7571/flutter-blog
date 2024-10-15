@@ -4,14 +4,12 @@ import 'package:flutter_blog/_core/constants/size.dart';
 class CustomAuthTextFormField extends StatelessWidget {
   final String text;
   final bool obscureText;
-  final funValidator;
   final TextEditingController controller;
 
   const CustomAuthTextFormField({
     Key? key,
     required this.text,
     this.obscureText = false,
-    required this.funValidator,
     required this.controller,
   }) : super(key: key);
 
@@ -24,7 +22,6 @@ class CustomAuthTextFormField extends StatelessWidget {
         const SizedBox(height: smallGap),
         TextFormField(
           controller: controller,
-          validator: funValidator,
           obscureText: obscureText,
           decoration: InputDecoration(
             hintText: "Enter $text",

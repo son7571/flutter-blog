@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 class CustomTextFormField extends StatelessWidget {
   final String hint;
   final bool obscureText;
-  final funValidator;
   final TextEditingController controller;
   final String? initValue;
 
@@ -11,7 +10,6 @@ class CustomTextFormField extends StatelessWidget {
     Key? key,
     required this.hint,
     this.obscureText = false,
-    required this.funValidator,
     required this.controller,
     this.initValue = "",
   }) : super(key: key);
@@ -23,7 +21,6 @@ class CustomTextFormField extends StatelessWidget {
     }
     return TextFormField(
       controller: controller,
-      validator: funValidator,
       obscureText: obscureText,
       decoration: InputDecoration(
         hintText: "Enter $hint",

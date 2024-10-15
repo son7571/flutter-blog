@@ -8,7 +8,11 @@ class PostWriteBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(16.0),
-      child: PostWriteForm(),
+      child: Column(
+        children: [
+          Flexible(child: PostWriteForm()),
+        ],
+      ),
     );
   }
 }

@@ -17,25 +17,21 @@ class PostWriteForm extends StatelessWidget {
     return Form(
       key: _formKey,
       child: ListView(
+        shrinkWrap: true,
         children: [
           CustomTextFormField(
             controller: _title,
             hint: "Title",
-            funValidator: validateTitle(),
           ),
           const SizedBox(height: smallGap),
           CustomTextArea(
             controller: _content,
             hint: "Content",
-            funValidator: validateContent(),
           ),
           const SizedBox(height: largeGap),
           CustomElevatedButton(
             text: "글쓰기",
-            funPageRoute: () async {
-              if (_formKey.currentState!.validate()) {
-              }
-            },
+            click: () {},
           ),
         ],
       ),

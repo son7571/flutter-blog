@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 ThemeData theme() {
   return ThemeData(
     appBarTheme: appBarTheme(),
+    useMaterial3: true,
   );
 }
 

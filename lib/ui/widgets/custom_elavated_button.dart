@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 
 class CustomElevatedButton extends StatelessWidget {
   final String text;
-  final funPageRoute;
+  final click;
 
-  const CustomElevatedButton({required this.text, required this.funPageRoute});
+  const CustomElevatedButton({required this.text, required this.click});
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +16,7 @@ class CustomElevatedButton extends StatelessWidget {
         ),
         backgroundColor: Colors.white12,
       ),
-      onPressed: funPageRoute,
+      onPressed: click,
       child: Text("$text"),
     );
   }

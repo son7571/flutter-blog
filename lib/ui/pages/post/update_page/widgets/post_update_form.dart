@@ -22,23 +22,16 @@ class PostUpdateForm extends StatelessWidget {
             controller: _title,
             initValue: "제목",
             hint: "Title",
-            funValidator: validateTitle(),
           ),
           const SizedBox(height: smallGap),
           CustomTextArea(
             controller: _content,
-            initValue: "내용",
             hint: "Content",
-            funValidator: validateContent(),
           ),
           const SizedBox(height: largeGap),
           CustomElevatedButton(
             text: "글 수정하기",
-            funPageRoute: () async {
-              if (_formKey.currentState!.validate()) {
-                Navigator.pop(context);
-              }
-            },
+            click: () {},
           ),
         ],
       ),

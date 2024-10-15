@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_blog/_core/constants/move.dart';
 import 'package:flutter_blog/_core/constants/size.dart';
 
 class CustomNavigation extends StatelessWidget {
@@ -21,7 +20,7 @@ class CustomNavigation extends StatelessWidget {
               TextButton(
                 onPressed: () {
                   scaffoldKey.currentState!.openEndDrawer();
-                  Navigator.pushNamed(context, Move.postWritePage);
+                  Navigator.pushNamed(context, "/post/write");
                 },
                 child: const Text(
                   "글쓰기",
@@ -36,7 +35,7 @@ class CustomNavigation extends StatelessWidget {
               TextButton(
                 onPressed: () {
                   scaffoldKey.currentState!.openEndDrawer();
-                  Navigator.popAndPushNamed(context, Move.loginPage);
+                  Navigator.popAndPushNamed(context, "/login");
                 },
                 child: const Text(
                   "로그아웃",
