@@ -1,4 +1,5 @@
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_blog/data/repository/user_repository.dart';
 import 'package:flutter_blog/main.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -14,6 +15,7 @@ class SessionUser {
 class SessionGVM extends Notifier<SessionUser> {
   // TODO 2: 모름
   final mContext = navigatorKey.currentContext!;
+  UserRepository userRepository = const UserRepository();
 
   @override
   SessionUser build() {
@@ -23,7 +25,23 @@ class SessionGVM extends Notifier<SessionUser> {
 
   Future<void> login() async {}
 
-  Future<void> join(String username, String email, String password) async {}
+  Future<void> join(String username, String email, String password) async {
+    final body = {
+      "username": username,
+      "email": email,
+      "password": password,
+    };
+
+    Map<String, dynamic> responseBody = await userRepository.save(body);
+    if (!responseBody["success"]) {
+      ScaffoldMessenger.of(mContext!).showSnackBar(
+        SnackBar(content: Text("회원가입 실패 : ${responseBody["errorMessage"]}")),
+      );
+      return;
+    }
+
+    Navigator.pushNamed(mContext, "/login");
+  }
 
   Future<void> logout() async {}
 
