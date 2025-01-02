@@ -11,7 +11,7 @@ class SessionUser {
   SessionUser({this.id, this.username, this.accessToken, this.isLogin});
 }
 
-class SessionGM extends Notifier<SessionUser> {
+class SessionGVM extends Notifier<SessionUser> {
   // TODO 2: 모름
   final mContext = navigatorKey.currentContext!;
 
@@ -23,7 +23,7 @@ class SessionGM extends Notifier<SessionUser> {
 
   Future<void> login() async {}
 
-  Future<void> join() async {}
+  Future<void> join(String username, String email, String password) async {}
 
   Future<void> logout() async {}
 
@@ -37,6 +37,6 @@ class SessionGM extends Notifier<SessionUser> {
   }
 }
 
-final sessionProvider = NotifierProvider<SessionGM, SessionUser>(() {
-  return SessionGM();
+final sessionProvider = NotifierProvider<SessionGVM, SessionUser>(() {
+  return SessionGVM();
 });
