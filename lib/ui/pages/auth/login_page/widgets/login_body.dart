@@ -6,9 +6,6 @@ import 'package:flutter_blog/ui/widgets/custom_logo.dart';
 import 'package:flutter_blog/ui/widgets/custom_text_button.dart';
 
 class LoginBody extends StatelessWidget {
-  final _username = TextEditingController();
-  final _password = TextEditingController();
-
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -18,13 +15,11 @@ class LoginBody extends StatelessWidget {
           const CustomLogo("Blog"),
           CustomAuthTextFormField(
             text: "Username",
-            controller: _username,
           ),
           const SizedBox(height: mediumGap),
           CustomAuthTextFormField(
             text: "Password",
             obscureText: true,
-            controller: _password,
           ),
           const SizedBox(height: largeGap),
           CustomElevatedButton(
