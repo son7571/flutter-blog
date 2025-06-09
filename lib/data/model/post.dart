@@ -7,17 +7,18 @@ class Post {
   DateTime createdAt;
   DateTime updatedAt;
   User user;
-  int bookmarkCount;
+  int bookmarkCount; // PostListPage 만들다가 보니 필요함
+  bool? isBookmark;
 
-  Post({
-    required this.id,
-    required this.title,
-    required this.content,
-    required this.createdAt,
-    required this.updatedAt,
-    required this.user,
-    required this.bookmarkCount,
-  });
+  Post(
+      {required this.id,
+      required this.title,
+      required this.content,
+      required this.createdAt,
+      required this.updatedAt,
+      required this.user,
+      required this.bookmarkCount,
+      this.isBookmark});
 
   Post.fromMap(Map<String, dynamic> data)
       : id = data['id'],
@@ -25,6 +26,7 @@ class Post {
         content = data['content'],
         createdAt = DateTime.parse(data['createdAt']),
         updatedAt = DateTime.parse(data['updatedAt']),
-        user = User.fromMap(data['user']),
-        bookmarkCount = data['bookmarkCount'];
+        bookmarkCount = data['bookmarkCount'],
+        isBookmark = data['isBookmark'],
+        user = User.fromMap(data['user']);
 }
