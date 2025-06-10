@@ -15,7 +15,7 @@ class CustomTextFormField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
-      initialValue: "안녕",
+      initialValue: initialValue,
       obscureText: obscureText,
       onChanged: onChanged,
       decoration: InputDecoration(
