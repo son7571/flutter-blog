@@ -7,7 +7,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 class PostListBody extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    PostListModel? model = ref.watch(postListProvider);
+    PostListModel? model = ref.watch(PostListProvider);
 
     if (model == null) {
       return Center(child: CircularProgressIndicator());

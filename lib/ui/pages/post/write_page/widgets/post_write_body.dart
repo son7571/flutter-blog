@@ -10,7 +10,7 @@ class PostWriteBody extends StatelessWidget {
       padding: const EdgeInsets.all(16.0),
       child: Column(
         children: [
-          Flexible(child: PostWriteForm()),
+          Flexible(child: PostWriteForm()), // todo: Flexible 공부하기
         ],
       ),
     );

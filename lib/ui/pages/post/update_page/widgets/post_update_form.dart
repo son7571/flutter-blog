@@ -1,37 +1,45 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_blog/_core/constants/size.dart';
-import 'package:flutter_blog/_core/utils/validator_util.dart';
+import 'package:flutter_blog/data/model/post.dart';
+import 'package:flutter_blog/ui/pages/post/detail_page/post_detail_vm.dart';
 import 'package:flutter_blog/ui/widgets/custom_elavated_button.dart';
 import 'package:flutter_blog/ui/widgets/custom_text_area.dart';
 import 'package:flutter_blog/ui/widgets/custom_text_form_field.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-class PostUpdateForm extends StatelessWidget {
-  final _formKey = GlobalKey<FormState>();
-  final _title = TextEditingController();
-  final _content = TextEditingController();
+class PostUpdateForm extends ConsumerWidget {
+  Post post;
 
-  PostUpdateForm({Key? key}) : super(key: key);
+  PostUpdateForm(this.post);
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    PostDetailVM vm = ref.read(postDetailProvider(post.id).notifier);
+
     return Form(
-      key: _formKey,
       child: ListView(
         children: [
           CustomTextFormField(
-            controller: _title,
-            initValue: "제목",
             hint: "Title",
+            initialValue: post.title,
+            onChanged: (value) {
+              post.title = value;
+            },
           ),
           const SizedBox(height: smallGap),
           CustomTextArea(
-            controller: _content,
             hint: "Content",
+            initialValue: post.content,
+            onChanged: (value) {
+              post.content = value;
+            },
           ),
           const SizedBox(height: largeGap),
           CustomElevatedButton(
             text: "글 수정하기",
-            click: () {},
+            click: () {
+              vm.updateOne(post);
+            },
           ),
         ],
       ),
