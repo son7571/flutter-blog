@@ -11,7 +11,7 @@ class PostWriteForm extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     PostWriteFM fm = ref.read(PostWriteProvider.notifier);
-    PostListVM vm = ref.read(PostListProvider.notifier);
+    PostListVM vm = ref.read(postListProvider.notifier);
     PostWriteModel model = ref.watch(PostWriteProvider);
 
     return Form(

@@ -46,7 +46,7 @@ class PostDetailVM extends AutoDisposeFamilyNotifier<PostDetailModel?, int> {
     state = state!.copyWith(post: nextPost);
 
     // 4. 상태갱신 (list -> notify)
-    ref.read(PostListProvider.notifier).notifyUpdate(nextPost);
+    ref.read(postListProvider.notifier).notifyUpdate(nextPost);
 
     // 5. pop
     Navigator.pop(mContext);
@@ -62,7 +62,7 @@ class PostDetailVM extends AutoDisposeFamilyNotifier<PostDetailModel?, int> {
     }
 
     //init(postId);
-    ref.read(PostListProvider.notifier).notifyDeleteOne(postId);
+    ref.read(postListProvider.notifier).notifyDeleteOne(postId);
     Navigator.pop(mContext);
   }
 
